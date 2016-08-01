@@ -1,0 +1,7 @@
+- events = Pivorak::Events::UpcomingEventsFinder.new.call
+
+- if events.any?
+  h2 = 'Upcoming events'
+
+  .row
+    == render events

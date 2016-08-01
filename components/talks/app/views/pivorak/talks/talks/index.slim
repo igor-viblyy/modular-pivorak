@@ -1,0 +1,8 @@
+h2 Talks
+
+- if admin?
+  .actions
+    = link_to('New Talk', pivorak.new_talk_path, class: 'btn btn-success')
+
+.row
+  == render talks

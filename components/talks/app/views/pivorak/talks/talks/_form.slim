@@ -1,0 +1,31 @@
+= form_for([pivorak, talk], html: { class: 'form-horizontal' }) do |f|
+
+  == render 'errors', errors: talk.errors if talk.errors.any?
+
+  - if Pivorak::Core.available?(:events)
+    .form-group
+      = f.label :event_id, 'Event', class: 'col-sm-4 control-label'
+      .col-sm-6 = f.collection_select :event_id, Pivorak::Events::Event.all, :id, :title, class: 'form-control'
+
+  .form-group
+    = f.label :topic, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :topic, class: 'form-control'
+
+  .form-group
+    = f.label :speaker, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :speaker, class: 'form-control'
+
+  .form-group
+    = f.label :description, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_area :description, rows: 10, class: 'form-control'
+
+  .form-group
+    = f.label :video, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :video, class: 'form-control'
+
+  .form-group
+    = f.label :slides, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :slides, class: 'form-control', rows: 10
+
+  div.actions
+    = f.submit class: 'btn btn-success'

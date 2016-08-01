@@ -1,0 +1,5 @@
+div.alert.alert-warning
+    h4 = 'Errors'
+    ul
+      - errors.full_messages.each do |message|
+        li = message

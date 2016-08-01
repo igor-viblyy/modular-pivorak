@@ -1,0 +1,26 @@
+= form_for([pivorak, event], html: { class: 'form-horizontal' }) do |f|
+
+  == render 'errors', errors: event.errors if event.errors.any?
+
+  .form-group
+    = f.label :title, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :start, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.datetime_select :start, class: 'form-control'
+
+  .form-group
+    = f.label :finish, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.datetime_select :finish, class: 'form-control'
+
+  .form-group
+    = f.label :place, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_field :place, class: 'form-control'
+
+  .form-group
+    = f.label :agenda, class: 'col-sm-4 control-label'
+    .col-sm-6 = f.text_area :agenda, class: 'form-control', rows: 10
+
+  div.actions
+    = f.submit class: 'btn btn-success'

@@ -1,0 +1,8 @@
+h2 Events
+
+- if admin?
+  .actions
+    = link_to('New Event', pivorak.new_event_path, class: 'btn btn-success')
+
+.row
+  == render events

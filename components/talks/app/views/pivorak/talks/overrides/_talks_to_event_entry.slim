@@ -1,0 +1,14 @@
+- talks ||= Pivorak::Talks::TalksEventFinder.new(event.id).call
+
+- if talks.any?
+  .col-md-6
+    h2 = 'Talks'
+
+    - talks.each do |talk|
+      h3 = link_to talk.topic, pivorak.talk_path(talk)
+      small = "by #{talk.speaker}"
+      br
+      = link_to thumbnail_image(talk.video), pivorak.talk_path(talk)
+      br
+      br
+

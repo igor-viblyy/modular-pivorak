@@ -1,0 +1,26 @@
+.row
+  .col-md-6 data-mount-point='event_entry'
+    h1 = event.title
+
+    .two-parts
+      .left  = 'Start'
+      .right = timestamp(event.start)
+    .two-parts
+      .left  = 'Finish'
+      .right = timestamp(event.finish)
+
+    .two-parts
+      .left  = 'Where'
+      .right = event.place
+
+    .two-parts
+      .left  = 'Agenda'
+      .right = event.agenda.html_safe
+
+
+    - if admin?
+      .actions
+        = link_to 'Edit',    pivorak.edit_event_path(event), class: 'btn btn-warning'
+        = link_to 'Destroy', pivorak.event_path(event), method: :delete,
+                                                        data:    { confirm: 'Are you sure?' },
+                                                        class:  'btn btn-danger'

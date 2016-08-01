@@ -1,0 +1,17 @@
+.two-parts {
+  display: flex;
+  width: 100%;
+  vertical-align: top;
+  margin-bottom: 15px;
+
+  .left {
+    display: inline-block;
+    width: 30%;
+    font-weight: bold;
+  }
+
+  .right {
+    display: inline-block;
+    width: 70%;
+  }
+}

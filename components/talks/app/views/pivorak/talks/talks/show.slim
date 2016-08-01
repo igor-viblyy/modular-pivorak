@@ -1,0 +1,32 @@
+h1 = talk.topic
+
+.row
+  .col-md-6
+    iframe width="560" height="315" src="https://www.youtube.com/embed/#{Pivorak::Talks::VideoService.new(talk.video).id}" frameborder="0" allowfullscreen
+
+  .col-md-6
+    - if Pivorak::Core.available?(:events) && talk.event.present?
+      .two-parts
+        .left  = 'Event'
+        .right = link_to talk.event.title, pivorak.event_path(talk.event)
+
+    - if talk.slides.present?
+      .two-parts
+        .left  = 'Slides'
+        .right = talk.slides
+
+    .two-parts
+      .left  = 'Video'
+      .right = link_to talk.video, "#{talk.video}"
+
+.row
+  .col-md-6
+    = talk.description.html_safe
+
+.row
+  - if admin?
+    .actions
+      = link_to 'Edit',    pivorak.edit_talk_path(talk), class: 'btn btn-warning'
+      = link_to 'Destroy', pivorak.talk_path(talk), method: :delete,
+                                                      data:    { confirm: 'Are you sure?' },
+                                                      class:  'btn btn-danger'

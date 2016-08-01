@@ -1,0 +1,8 @@
+- events = Pivorak::Events::LastFewEventsFinder.new.call
+- few    = Pivorak::Events::LastFewEventsFinder::FEW
+
+- if events.any?
+  h2 = "Last #{few} events"
+
+  .row
+    == render events

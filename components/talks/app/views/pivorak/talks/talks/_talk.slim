@@ -1,0 +1,13 @@
+.col-md-6
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-12
+          h3 = link_to talk.topic, pivorak.talk_path(talk)
+      .row
+        .col-md-6 = talk.speaker
+        - if Pivorak::Core.available?(:events) && talk.event.present?
+          .col-md-6 = link_to talk.event.title, pivorak.event_path(talk.event)
+      .row
+        .col-md-12
+          = link_to thumbnail_image(talk.video), pivorak.talk_path(talk)

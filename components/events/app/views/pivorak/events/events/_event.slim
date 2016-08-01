@@ -1,0 +1,16 @@
+.col-md-4
+  .panel.panel-primary
+    .panel-body
+      h3 = link_to event.title, pivorak.event_path(event)
+
+      .two-parts
+        .left  = 'Start'
+        .right = timestamp(event.start)
+
+      .two-parts
+        .left  = 'Finish'
+        .right = timestamp(event.finish)
+
+      .two-parts
+        .left = 'Where'
+        .right = event.place

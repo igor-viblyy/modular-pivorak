@@ -1,0 +1,8 @@
+- talks = Pivorak::Talks::LastFewTalksFinder.new.call
+- few   = Pivorak::Talks::LastFewTalksFinder::FEW
+
+- if talks.any?
+  h2 = "Last #{few} talks"
+
+  .row
+    == render talks

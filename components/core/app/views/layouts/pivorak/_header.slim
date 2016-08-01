@@ -1,0 +1,23 @@
+nav#main-nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#collapse-menu' aria-expanded='false'
+        span class='sr-only'
+        span class='icon-bar'
+        span class='icon-bar'
+        span class='icon-bar'
+
+    .collapse.navbar-collapse#collapse-menu
+      ul.nav.navbar-nav
+
+        li class="#{active :home}" data-mount-point='main_nav'
+          = link_to 'Home', pivorak.root_path
+
+      ul.nav.navbar-nav.navbar-right
+        - if current_user
+          li = link_to 'Exit', pivorak.destroy_user_session_path, method: :delete
+        - else
+          li class="#{active('devise/sessions', 'sign_in')}"
+            = link_to 'Log in',  pivorak.new_user_session_path
+          li class="#{active('devise/registrations', 'sign_up')}"
+            = link_to 'Sing up', pivorak.new_user_registration_path
